@@ -11,14 +11,13 @@ import Testimonials from "./components/Testimonials/Testimonials";
 import Footer from "./components/Footer/Footer";
 import Popup from "./components/Popup/Popup";
 
-
-
 const App = () => {
   const [orderPopup, setOrderPopup] = React.useState(false);
 
   const handleOrderPopup = () => {
     setOrderPopup(!orderPopup);
   };
+
   React.useEffect(() => {
     AOS.init({
       offset: 100,
@@ -32,11 +31,33 @@ const App = () => {
   return (
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
       <Navbar handleOrderPopup={handleOrderPopup} />
-      <Hero handleOrderPopup={handleOrderPopup} />
-      <Products />
-      <TopProducts handleOrderPopup={handleOrderPopup} />
-      <Banner />
-      <Navigation />
+
+      {/* HOME SECTION */}
+      <section id="home">
+        <Hero handleOrderPopup={handleOrderPopup} />
+      </section>
+
+      {/* KIDS WEAR (PRODUCTS) */}
+      <section id="kids-wear">
+        <Products />
+      </section>
+
+      {/* TOP RATED PRODUCTS */}
+      <section id="top-rated">
+        <TopProducts handleOrderPopup={handleOrderPopup} />
+      </section>
+
+      {/* MENS WEAR (BANNER) */}
+      <section id="mens-wear">
+        <Banner />
+      </section>
+
+      {/* ELECTRONICS (NAVIGATION) */}
+      <section id="electronics">
+        <Navigation />
+      </section>
+
+      {/* OTHER SECTIONS */}
       <Testimonials />
       <Footer />
       <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
